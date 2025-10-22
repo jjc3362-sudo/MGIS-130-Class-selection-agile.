@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIT Course Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>RIT Course Selection</h1>
+            <p class="subtitle">Find and select your courses</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <!-- Filters Section -->
+            <aside class="filters">
+                <h2>Filters</h2>
+                
+                <div class="filter-group">
+                    <label for="search">Search Courses</label>
+                    <input type="text" id="search" placeholder="Search by title or code...">
+                </div>
+
+                <div class="filter-group">
+                    <label for="department">Department</label>
+                    <select id="department">
+                        <option value="">All Departments</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="level">Course Level</label>
+                    <select id="level">
+                        <option value="">All Levels</option>
+                        <option value="100">100 Level</option>
+                        <option value="200">200 Level</option>
+                        <option value="300">300 Level</option>
+                        <option value="400">400 Level</option>
+                        <option value="500">500 Level</option>
+                        <option value="600">600 Level</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="term">Term</label>
+                    <select id="term">
+                        <option value="">All Terms</option>
+                        <option value="Fall">Fall</option>
+                        <option value="Spring">Spring</option>
+                        <option value="Summer">Summer</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="credits">Credits</label>
+                    <select id="credits">
+                        <option value="">All Credits</option>
+                        <option value="1">1 Credit</option>
+                        <option value="2">2 Credits</option>
+                        <option value="3">3 Credits</option>
+                        <option value="4">4 Credits</option>
+                    </select>
+                </div>
+
+                <button id="clearFilters" class="btn-secondary">Clear All Filters</button>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Course List -->
+                <section class="course-list">
+                    <div class="list-header">
+                        <h2>Available Courses</h2>
+                        <div class="sort-controls">
+                            <label for="sort">Sort by:</label>
+                            <select id="sort">
+                                <option value="code">Course Code</option>
+                                <option value="title">Title</option>
+                                <option value="credits">Credits</option>
+                                <option value="level">Level</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="courseList" class="courses">
+                        <p class="loading">Loading courses...</p>
+                    </div>
+                </section>
+
+                <!-- Selected Courses -->
+                <section class="selected-courses">
+                    <h2>Selected Courses <span id="totalCredits" class="credit-badge">0 credits</span></h2>
+                    <div id="selectedList" class="selected-list">
+                        <p class="empty-message">No courses selected yet. Click on courses to add them.</p>
+                    </div>
+                    <button id="exportSelection" class="btn-primary">Export Selection</button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Course Detail Modal -->
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalBody"></div>
+            <div class="modal-actions">
+                <button id="modalAddButton" class="btn-primary">Add to Selection</button>
+                <button id="modalRemoveButton" class="btn-danger">Remove from Selection</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
